@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="app-header">
+            <h1><i class="fa-solid fa-wallet"></i> Expense Tracker</h1>
+            <p>Help manage your money with Expense Tracker ✨</p>
+        </header>
+
+        <section class="summary-card">
+            <div class="summary-title">Total Spent</div>
+            <div class="total-amount" id="totalAmount">₹0.00</div>
+            <div class="summary-stats">
+                <span>Transactions: <strong id="txCount">0</strong></span>
+                <button id="clearAllBtn" class="clear-btn" title="Clear all expenses">Clear All</button>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2>Add New Expense</h2>
+            <form id="expenseForm">
+                <div class="input-group">
+                    <input type="text" id="expenseTitle" placeholder="Where did you spend? (e.g., Coffee)" required autocomplete="off">
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <input type="number" id="expenseAmount" placeholder="Amount (₹)" step="0.01" min="1" required>
+                    </div>
+                    <div class="input-group">
+                        <select id="expenseCategory" required>
+                            <option value="" disabled selected>Category</option>
+                            <option value="Food">🍔 Food & Drinks</option>
+                            <option value="Shopping">🛍️ Shopping</option>
+                            <option value="Bills">💡 Bills & Utilities</option>
+                            <option value="Entertainment">🎮 Entertainment</option>
+                            <option value="Travel">🚗 Travel</option>
+                            <option value="Other">📌 Other</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fa-solid fa-plus"></i> Add Expense
+                </button>
+            </form>
+        </section>
+
+        <section class="history-section">
+            <div class="history-header">
+                <h2>History</h2>
+                <div class="filter-pills">
+                    <button class="pill active" data-filter="All">All</button>
+                    <button class="pill" data-filter="Food">Food</button>
+                    <button class="pill" data-filter="Shopping">Shopping</button>
+                    <button class="pill" data-filter="Bills">Bills</button>
+                </div>
+            </div>
+
+            <div id="expenseList" class="expense-list">
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
